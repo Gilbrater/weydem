@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router} from 'react-router-dom';
+
+import Nav from './components/NavComponent/Nav';
+import Root from './components/Root';
 
 class App extends Component {
   render() {
     return (
+      <Router>
       <div className="App">
-        <h2>HellO dem</h2>
+        <Nav/>
+        <Root/>
       </div>
+      </Router>
     );
   }
 }
