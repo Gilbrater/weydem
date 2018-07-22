@@ -1,0 +1,7 @@
+
+.signin {
+  background: url('../img/signin-bg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
