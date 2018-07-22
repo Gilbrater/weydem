@@ -1,7 +1,174 @@
+:root {
+  --main-purple-color: #7757A8;
+  --main-pink-color: #F95AAD;
+  --main-font: 'Open Sans', sans-serif;
+}
+
+
+.slug {
+  font-family: Ubuntu;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  font-size: 0.8em;
+  color: #F5F5F5;
+}
 
 .signin {
   background: url('../img/signin-bg.png');
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
+}
+
+.signin-form {
+  margin-top: 7%;
+  background: #FFFFFF;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+
+.signin-img {
+  text-align: center;
+  margin-top: 10%;
+  margin-left: 10%;
+  width: 50%
+}
+.signup-img {
+  text-align: center;
+  margin-top: 15%;
+  width: 90%
+}
+
+.signin-form h3 {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  font-size: 24px;
+  color: #000000;
+}
+
+.signin-form-or {
+  text-align: center;
+}
+
+.signin-form input {
+  box-sizing: border-box;
+  display: block;
+  width:100%;
+  border-width: 1px;
+  border-style: solid;
+  padding: 8px;
+  outline: 0;
+  font-family: inherit;
+  font-size: 0.95em;
+  border-radius: 3px;
+}
+
+.input-invalid {
+  border-color: #f34b4bd1 !important;
+}
+
+.invalid-response{
+  font-size: 12px;
+  box-sizing: border-box;
+  color: #f34b4bd1;
+}
+
+.signin-form input[type="email"],
+.signin-form input[type="password"],
+.signin-form input[type="text"] {
+  background: #fff;
+  border-color: #bbb;
+  color: #555;
+}
+
+/* Text fields' focus effect */
+.signin-form input[type="email"]:focus,
+.signin-form input[type="password"]:focus
+.signin-form input[type="text"]:focus {
+  border-color: #888;
+}
+
+.signin-form input[type="submit"] {
+  text-align: center;
+  width: 100%;
+  color: #fff;
+  cursor: pointer;
+  background: linear-gradient(180deg, #5CD51D 0%, #3C9B0A 100%);
+  box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+}
+
+.signin-form input[type="submit"]:hover {
+  background-color: rgba(250, 150, 32, 0.7);
+}
+
+/* Buttons' focus effect */
+.signin-form input[type="submit"]:focus {
+  background-color: rgba(250, 150, 32, 0.7);
+}
+
+.extra-note Link {
+  font-size: 0.5em;
+}
+
+
+a {
+  text-decoration: none;
+}
+
+.signin-form p {
+  font-family: Open Sans;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+font-size: 0.85em;
+
+color: #000000;
+}
+
+.google-login {
+  background: #3569C1;
+  border: 1px solid #3569C1;
+  box-sizing: border-box;
+  border-radius: 3px;
+  padding: 10px 2px 10px 2px;
+  font-family: Open Sans;
+font-style: normal;
+font-weight: normal;
+line-height: normal;
+font-size: 0.85em;
+text-align: center;
+
+color: #FFFFFF;
+}
+
+.facebook-login {
+  background: #324C83;
+  border: 1px solid #324C83;
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding: 10px 2px 10px 2px;
+  font-family: Open Sans;
+font-style: normal;
+font-weight: normal;
+line-height: normal;
+font-size: 0.85em;
+text-align: center;
+
+color: #FFFFFF;
+}
+
+.signin-form h3 {
+  font-family: Open Sans;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+font-size: 1em;
+text-align: center;
+
+color: #000000;
 }

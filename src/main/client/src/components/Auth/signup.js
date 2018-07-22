@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 import classnames from 'classnames';
 import { connect } from 'react-redux';
 import { registerUser } from '../../actions/authActions';
-import { BarLoader } from 'react-spinners';
+import { PulseLoader } from 'react-spinners';
 import TextFieldGroup from '../common/TextFieldGroup';
 
 import './css/auth.css';
@@ -67,61 +67,64 @@ class Signup extends Component {
 
     return (
       <section className="signin">
-       <div className="">
+       <div className="container">
           <div className="row">
-            <div className="col-sm-6">
-              <div className="left-pane">
-                {/* <img src={img_logo} alt="Crafters Connect" /> */}
-              </div>
+            <div className="col-md-8">
+                <img src={img_signup} className="signup-img" alt="Crafters Connect" />
             </div>
-            <div className="col-sm-6 right-pane">
-              <h3>Join millions of ready players</h3>
-              <form noValidate onSubmit={this.onSubmit}>
-                <p>Username</p>
-                <TextFieldGroup
-                  name="name"
-                  type="text"
-                  value={this.state.email}
-                  onChange={this.onChange}
-                  error={errors.name}/>
+            <div className="col-md-4">
+              <div className="signin-form">
+                <form noValidate onSubmit={this.onSubmit}>
+                  <h3>Join millions of ready players</h3>
+                  <h5 className="google-login">Sign up with Google</h5>
+                  <h5 className="facebook-login">Sign Up with Facebook</h5>
+                  <hr></hr>
+                  <p className="signin-form-or">OR</p>
+                  <hr></hr>
+                  <p>Username</p>
+                  <TextFieldGroup
+                    name="name"
+                    type="text"
+                    value={this.state.name}
+                    onChange={this.onChange}
+                    error={errors.name}/>
 
-                <p>Email</p>
-                <TextFieldGroup
-                  name="email"
-                  type="email"
-                  value={this.state.email}
-                  onChange={this.onChange}
-                  error={errors.email}/>
+                    <p>Email</p>
+                    <TextFieldGroup
+                      name="email"
+                      type="email"
+                      value={this.state.email}
+                      onChange={this.onChange}
+                      error={errors.email}/>
 
-                <p>Password</p>
-                <TextFieldGroup
-                  name="password"
-                  type="password"
-                  value={this.state.password}
-                  onChange={this.onChange}
-                  error={errors.password}/>
+                      <p>Password</p>
+                      <TextFieldGroup
+                        name="password"
+                        type="password"
+                        value={this.state.password}
+                        onChange={this.onChange}
+                        error={errors.password}/>
 
-                <p>Confirm Password</p>
-                <TextFieldGroup
-                  name="password2"
-                  type="password"
-                  value={this.state.password2}
-                  onChange={this.onChange}
-                  error={errors.password2}/>
-
-                <br></br>
-                <div>
-                  <BarLoader
-                    color={'#FBB062'}
-                    loading={this.state.loading}
-                    width={225}
-                  />
-                </div>
-                <input type="submit" value="Sign Up"/>
-                <br></br>
-                <p>Already Signed Up? <Link to='/signin'>Login</Link></p>
-
-              </form>
+                        <p>Confirm Password</p>
+                        <TextFieldGroup
+                          name="password2"
+                          type="password"
+                          value={this.state.password2}
+                          onChange={this.onChange}
+                          error={errors.password2}/>
+                          <br></br>
+                          <div>
+                            <PulseLoader
+                              color={'#7757A8;'}
+                              loading={this.state.loading}
+                              width={180}
+                            />
+                          </div>
+                          <input type="submit" value="Sign Up"/>
+                          <br></br>
+                          <p>Already Signed Up? <Link to='/signin'>Login</Link></p>
+                        </form>
+                      </div>
             </div>
           </div>
       </div>

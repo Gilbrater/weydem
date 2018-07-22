@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-// import PropTypes from 'prop-types';
-// import { connect } from 'react-redux';
-// import { logoutUser } from '../../actions/authActions';
-// import { clearCurrentCrafter } from '../../actions/crafterActions';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { logoutUser } from '../../actions/authActions';
+
 
 import './Nav.css';
 
@@ -11,38 +11,38 @@ import img_logo from '../../images/logo.png';
 
 class Nav extends Component {
 
-  // onLogoutClick(e) {
-  //     e.preventDefault();
-  //     this.props.clearCurrentCrafter();
-  //     this.props.logoutUser();
-  // }
+  onLogoutClick(e) {
+      e.preventDefault();
+      this.props.clearCurrentCrafter();
+      this.props.logoutUser();
+  }
 
   render() {
-    // const { isAuthenticated, user } = this.props.auth;
-    //
-    // const authLinks = (
-    //   <div className="auth-nav-items">
-    //     <img className="nav-avatar" src={user.avatar} alt={user.name}
-    //       style={{ width: '25px', marginRight: '5px' }}
-    //       title="You nust have a Gravatar connected to your email to display an image"/>
-    //     <Link to='/' className="auth-nav-item" onClick={this.onLogoutClick.bind(this)}>Sign Out</Link>
-    //   </div>
-    //
-    //   );
-    //
-    // const guestLinks = (
-    //   <div className="auth-nav-items">
-    //     <Link to='/signin' className="auth-nav-item">Sign In</Link>
-    //     <Link to='/signup' className="auth-nav-item auth-signup">Sign Up</Link>
-    //   </div>
-    // );
-    //
-    // let heroText;
-    // if (isAuthenticated) {
-    //   heroText = <span className="hero-nav-text"></span>
-    // } else {
-    //   heroText = <span className="hero-nav-text"></span>
-    // }
+    const { isAuthenticated, user } = this.props.auth;
+
+    const authLinks = (
+      <div className="auth-nav-items">
+        <img className="nav-avatar" src={user.avatar} alt={user.name}
+          style={{ width: '25px', marginRight: '5px' }}
+          title="You nust have a Gravatar connected to your email to display an image"/>
+        <Link to='/' className="auth-nav-item" onClick={this.onLogoutClick.bind(this)}>Logout</Link>
+      </div>
+
+      );
+
+    const guestLinks = (
+      <div className="auth-nav-items">
+        <Link to='/signin' className="auth-nav-item">Login</Link>
+        <Link to='/signup' className="auth-nav-item auth-signup">Sign Up</Link>
+      </div>
+    );
+
+    let heroText;
+    if (isAuthenticated) {
+      heroText = <span className="hero-nav-text"></span>
+    } else {
+      heroText = <span className="hero-nav-text"></span>
+    }
 
 
     return(
@@ -57,8 +57,7 @@ class Nav extends Component {
     </button>
             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div className="nav-items navbar-nav">
-                    <Link to='/tournament' className="nav-item nav-link">Tournament</Link>
-                    <Link to='/categories' className="nav-item nav-link">Categories</Link>
+                    <Link to='/categories' className="nav-item nav-link">Explore</Link>
                     <Link to='/signin' className="nav-item nav-link">Login</Link>
                     <Link to='/signup' className="nav-item nav-link auth-signup">Sign Up</Link>
                 </div>
@@ -68,5 +67,13 @@ class Nav extends Component {
     );
   }
 }
+Nav.propTypes = {
+  logoutUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired
+}
 
-export default Nav;
+const mapStateToProps = (state) => ({
+  auth: state.auth
+});
+
+export default connect (mapStateToProps, { logoutUser }) (Nav);

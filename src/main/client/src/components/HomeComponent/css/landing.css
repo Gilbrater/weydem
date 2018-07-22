@@ -24,7 +24,7 @@ header {
   line-height: normal;
   font-size: 3em;
   color: #fff;
-  margin-top: 10%;
+  margin-top: 12%;
 }
 
 .hero-text h3 {
@@ -44,12 +44,12 @@ header {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  font-size: 1.8em;;
+  font-size: 1.5em;;
   color: #FFFFFF;
-  margin-top: 6%;
+  margin-top: 5%;
   margin-left: 37%;
-  width: 27%;
-  padding: 5px;
+  width: 23%;
+  padding: 10px 3px 10px 3px;
   cursor: pointer;
 }
 
@@ -142,6 +142,34 @@ header {
   width: 100%;
 }
 
+.live {
+  text-align: center;
+  padding: 20px;
+}
+
+.live-row {
+  padding: 5px;
+}
+.top-live {
+  margin-top: 10px;
+}
+
+.mid-live {
+  margin-top: 10px;
+}
+
+.bottom-live {
+  margin-top: 10px;
+}
+
+.live-name {
+  font-family: Open Sans;
+  line-height: normal;
+  font-size: 1em;
+  color: #212121;
+  padding: 5px;
+}
+
 .about-section {
   position: absolute;
   margin-top: -100px;
@@ -189,4 +217,63 @@ header {
   font-size: 1em;
   text-align: center;
   color: #fff;
+}
+
+.footer-section  {
+  margin-top: 750px;
+}
+
+.footer {
+
+}
+
+.footer-right {
+
+}
+
+.footer-right h4 {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  font-size: 1em;;
+  color: #000000;
+}
+
+.footer-right li {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  font-size: 0.85em;
+  color: #000000;
+  list-style: none;
+  text-decoration: none;
+  padding: 8px;
+}
+
+.footer-left li {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  font-size: 0.85em;
+  color: #000000;
+  list-style: none;
+  text-decoration: none;
+  padding: 8px;
+}
+
+.footer-left {
+
+}
+
+.footer-left img {
+  padding-top: 50px;
+  width: 50%;
+  cursor: pointer;
+}
+
+.footer-copy {
+
 }

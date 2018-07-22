@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
 import { loginUser } from '../../actions/authActions';
-import { BarLoader } from 'react-spinners';
+import { PulseLoader } from 'react-spinners';
 import TextFieldGroup from '../common/TextFieldGroup';
 
 import {Link} from 'react-router-dom';
 
 import './css/auth.css';
-import img_signup from './img/signup-img.png';
+import img_signin from './img/signin-img.png';
 
 
 class Signin extends Component {
@@ -69,52 +69,57 @@ class Signin extends Component {
     const { errors } = this.state;
 
     return(
-      <div>
+
         <section className="signin">
-          <div className="col-md-7">
-
-          </div>
-          <div className="col-md-5">
-            <div>
-              <form noValidate onSubmit={this.onSubmit}>
-                <h3>Welcome back,</h3>
-                <br></br>
-                <h4>Please Sign In to Continue</h4>
-                <p>email</p>
-                <TextFieldGroup
-                  name="email"
-                  type="email"
-                  value={this.state.email}
-                  onChange={this.onChange}
-                  error={errors.email}/>
-
-                <p>password</p>
-                <TextFieldGroup
-                  name="password"
-                  type="password"
-                  value={this.state.password}
-                  onChange={this.onChange}
-                  error={errors.password}/>
-
-                <p className="extra-note"><Link to='/signin'>forgot password?</Link></p>
-                <br></br>
-                <div>
-                  <BarLoader
-                    color={'#FBB062'}
-                    loading={this.state.loading}
-                    width={225}
-                  />
-                </div>
-                <input type="submit" value="Sign In"/>
-                <br></br>
-                <p>New to weydem? <Link to='/signup'>Sign Up</Link></p>
-              </form>
+          <div className="container">
+          <div className="row">
+            <div className="col-md-8">
+              <img className="signin-img" src={img_signin} alt="Signin"/>
             </div>
+            <div className="col-md-4">
+              <div className="signin-form">
+                <form noValidate onSubmit={this.onSubmit}>
+                  <h3>Welcome back,</h3>
+                  <h5 className="google-login">Login with Google</h5>
+                  <h5 className="facebook-login">Login with Facebook</h5>
+                  <hr></hr>
+                  <p className="signin-form-or">OR</p>
+                  <hr></hr>
+                  <br></br>
+                  <p>Email</p>
+                  <TextFieldGroup
+                    name="email"
+                    type="email"
+                    value={this.state.email}
+                    onChange={this.onChange}
+                    error={errors.email}/>
+
+                    <p>Password</p>
+                    <TextFieldGroup
+                      name="password"
+                      type="password"
+                      value={this.state.password}
+                      onChange={this.onChange}
+                      error={errors.password}/>
+
+                      <p className="extra-note"><Link to='/signin'>forgot password?</Link></p>
+                      <br></br>
+                      <div>
+                        <PulseLoader
+                          color={'#7757A8;'}
+                          loading={this.state.loading}
+                          width={180}
+                        />
+                      </div>
+                      <input type="submit" value="Sign In"/>
+                      <br></br>
+                      <p>New to weydem? <Link to='/signup'>Sign Up</Link></p>
+                    </form>
+                  </div>
+                </div>
           </div>
-
+          </div>
         </section>
-
-      </div>
     );
   }
 }
