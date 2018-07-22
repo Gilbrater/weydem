@@ -17,22 +17,26 @@ import java.nio.charset.StandardCharsets;
 public class AuthService {
     @Autowired
     private UserRepository userRepository;
+    @Autowired
     private OnlinePresenceUtil onlinePresenceUtil;
     private static final Logger logger = LoggerFactory.getLogger(AuthService.class);
-
-    public AuthService(){
-        onlinePresenceUtil = OnlinePresenceUtil.getInstance();
-    }
 
     public User login(AuthData authData){
         User user = new User();
         try {
             user = getUserByEmail(authData.getEmail());
             if(user!=null){
+                if(onlinePresenceUtil.hasUser(user.getId())) {
+                    throw new Error("User is online");
+                }
                 String passwordHash = hashPassword(authData.getPassword());
                 if(!user.getPasswordHash().equals(passwordHash)){
-                    user=null;
+                    throw new Error("Incorrect password");
+                }else{
+                    onlinePresenceUtil.addUser(user);
                 }
+            }else{
+                throw new Error("No user with provided email");
             }
         }catch(Exception ex){
             logger.error(ex.getMessage());
@@ -52,7 +56,7 @@ public class AuthService {
             onlinePresenceUtil.addUser(createdUser);
             return newUser;
         }else{
-            return user;
+            throw new Error("User already exists");
         }
     }
 
