@@ -13,11 +13,8 @@ import java.util.List;
 public class UserController {
     @Autowired
     private UserRepository userRepository;
-    private OnlinePresenceUtil onlinePresenceUtil = OnlinePresenceUtil.getInstance();
-
-
-
-
+    @Autowired
+    private OnlinePresenceUtil onlinePresenceUtil;
 
     @GetMapping("")
     public List<User> getAll(){

@@ -1,18 +1,14 @@
 package com.gigoteam.weydem.models;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.List;
-
-@Document(collection = "Questions")
-public class Question {
+public class Answer {
     @Id
     private String id;
     private String text;
-    private String categoryId;
+    private String questionId;
+    private boolean isCorrect;
     private String date;
-    private List<Answer> answers;
     private String picture;
 
     public String getId() {
@@ -31,12 +27,20 @@ public class Question {
         this.text = text;
     }
 
-    public String getCategoryId() {
-        return categoryId;
+    public String getQuestionId() {
+        return questionId;
     }
 
-    public void setCategoryId(String categoryId) {
-        this.categoryId = categoryId;
+    public void setQuestionId(String questionId) {
+        this.questionId = questionId;
+    }
+
+    public boolean isCorrect() {
+        return isCorrect;
+    }
+
+    public void setCorrect(boolean correct) {
+        isCorrect = correct;
     }
 
     public String getDate() {
@@ -45,14 +49,6 @@ public class Question {
 
     public void setDate(String date) {
         this.date = date;
-    }
-
-    public List<Answer> getAnswers() {
-        return answers;
-    }
-
-    public void setAnswers(List<Answer> answers) {
-        this.answers = answers;
     }
 
     public String getPicture() {

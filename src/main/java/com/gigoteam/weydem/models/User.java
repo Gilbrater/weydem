@@ -6,6 +6,8 @@ import org.springframework.data.mongodb.core.index.IndexDirection;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.List;
+
 @Document(collection = "Users")
 public class User {
     @Id
@@ -23,6 +25,9 @@ public class User {
     private String city;
     private int age;
     private String picture;
+    private int watched;
+    @JsonIgnore
+    private List<Quiz> bookmarkedQuiz;
 
     public String getId() {
         return id;
@@ -118,5 +123,21 @@ public class User {
 
     public void setPicture(String picture) {
         this.picture = picture;
+    }
+
+    public List<Quiz> getBookmarkedQuiz() {
+        return bookmarkedQuiz;
+    }
+
+    public void setBookmarkedQuiz(List<Quiz> bookmarkedQuiz) {
+        this.bookmarkedQuiz = bookmarkedQuiz;
+    }
+
+    public int getWatched() {
+        return watched;
+    }
+
+    public void setWatched(int watched) {
+        this.watched = watched;
     }
 }
